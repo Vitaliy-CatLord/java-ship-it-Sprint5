@@ -2,6 +2,7 @@ package ru.yandex.practicum.delivery;
 
 public abstract class Parcel {
     //добавьте реализацию и другие необходимые классы
+    protected int baseCoast;
     protected String description;
     protected int weight;
     protected String deliveryAddress;
@@ -43,5 +44,7 @@ public abstract class Parcel {
         return sendDay;
     }
 
-    public abstract int getBaseCoast();
+    public int getBaseCoast() {
+        return baseCoast;
+    }
 }

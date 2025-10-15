@@ -46,6 +46,34 @@ public class DeliveryApp {
 
     private static void addParcel() {
         // Подсказка: спросите тип посылки и необходимые поля, создайте объект и добавьте в allParcels
+
+        System.out.println("Выберите тип посылки: 1- стандартная, 2 - хрупкая, 3- быстропортящаяся");
+        int parcelType = Integer.parseInt(scanner.nextLine());
+        //надо бы зациклить, а по при ошибке задолбаешься перевводить все
+
+
+        System.out.println("Введите название посылки:");
+        String description = scanner.nextLine();
+        System.out.println("Введите вес посылки:");
+        int weight = scanner.nextInt();
+        System.out.println("Введите адрес доставки:");
+        String deliveryAddress = scanner.nextLine();
+        System.out.println("Введите день отправления:");
+        int sendDay = scanner.nextInt();
+
+        if(parcelType == 1) {
+            StandardParcel parcel = new StandardParcel(description, weight, deliveryAddress, sendDay);
+            allParcels.add(parcel);
+        } else if(parcelType == 2) {
+            FragileParcel parcel = new FragileParcel(description, weight, deliveryAddress, sendDay);
+            allParcels.add(parcel);
+        } else if (parcelType == 3) {
+            System.out.println("Введите срок годности посылки:");
+            int timeToLive = scanner.nextInt();
+            PerishableParcel parcel = new PerishableParcel(description, weight, deliveryAddress, sendDay, timeToLive);
+            allParcels.add(parcel);
+        }
+
     }
 
     private static void sendParcels() {
