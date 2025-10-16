@@ -9,6 +9,9 @@ public class DeliveryApp {
     private static final Scanner scanner = new Scanner(System.in);
     private static List<Parcel> allParcels = new ArrayList<>();
     private static List<Trackable> parcelsStatus = new ArrayList<>();
+    private static ParcelBox<StandardParcel> standartBox = new ParcelBox<>(50);
+    private static ParcelBox<FragileParcel> fragileBox = new ParcelBox<>(15);
+    private static ParcelBox<PerishableParcel> perishableBox = new ParcelBox<>(25);
 
     public static void main(String[] args) {
         boolean running = true;
@@ -30,6 +33,9 @@ public class DeliveryApp {
                 case 4:
                     checkStatus();
                     break;
+                case 5:
+                    checkBox();
+                    break;
                 case 0:
                     running = false;
                     break;
@@ -45,15 +51,15 @@ public class DeliveryApp {
         System.out.println("2 — Отправить все посылки");
         System.out.println("3 — Посчитать стоимость доставки");
         System.out.println("4 — Отследить статус доставки");
+        System.out.println("5 — Показать содержимое коробки");
         System.out.println("0 — Завершить");
     }
 
     // реализуйте методы ниже
-
     private static void addParcel() {
         // Подсказка: спросите тип посылки и необходимые поля, создайте объект и добавьте в allParcels
         int parcelType;
-        while (true) { //зациклил, тк при неверном выборе надоест заново вводить
+        while (true) { //зациклил, тк при неверном выборе надоест перевводить все,  в идеале для каждого ввода сделать бы
             System.out.println("Выберите тип посылки: 1- стандартная, 2 - хрупкая, 3- быстропортящаяся");
             parcelType = Integer.parseInt(scanner.nextLine());
             if (parcelType==1 || parcelType==2 || parcelType==3) {
@@ -72,18 +78,27 @@ public class DeliveryApp {
         System.out.println("Введите день отправления:");
         int sendDay = Integer.parseInt(scanner.nextLine());
 
-        if(parcelType == 1) {
-            StandardParcel parcel = new StandardParcel(description, weight, deliveryAddress, sendDay);
-            allParcels.add(parcel);
-        } else if(parcelType == 2) {
-            FragileParcel parcel = new FragileParcel(description, weight, deliveryAddress, sendDay);
-            allParcels.add(parcel);
-            parcelsStatus.add((Trackable) parcel);
-        } else {  //if (parcelType == 3)
-            System.out.println("Введите срок годности посылки:");
-            int timeToLive = Integer.parseInt(scanner.nextLine());
-            PerishableParcel parcel = new PerishableParcel(description, weight, deliveryAddress, sendDay, timeToLive);
-            allParcels.add(parcel);
+        switch (parcelType) {
+            case 1:
+                StandardParcel standardParcel = new StandardParcel(description, weight, deliveryAddress, sendDay);
+                allParcels.add(standardParcel);
+                standartBox.addParcel(standardParcel);
+                break;
+            case 2:
+                FragileParcel fragileParcel = new FragileParcel(description, weight, deliveryAddress, sendDay);
+                allParcels.add(fragileParcel);
+                parcelsStatus.add((Trackable) fragileParcel);
+                fragileBox.addParcel(fragileParcel);
+                break;
+            case 3:
+                System.out.println("Введите срок годности посылки:");
+                int timeToLive = Integer.parseInt(scanner.nextLine());
+                PerishableParcel perishableParcel = new PerishableParcel(description, weight, deliveryAddress, sendDay, timeToLive);
+                allParcels.add(perishableParcel);
+                perishableBox.addParcel(perishableParcel);
+                break;
+            default:
+                System.out.println("Неверный выбор.");
         }
 
     }
@@ -102,7 +117,7 @@ public class DeliveryApp {
         for (Parcel parcel : allParcels) {
             totalCoast+= parcel.calculateDeliveryCost();
         }
-        System.out.println("общая стоимость доставки: " + totalCoast);
+        System.out.println("Общая стоимость доставки: " + totalCoast);
     }
 
     private static void checkStatus() {
@@ -115,6 +130,26 @@ public class DeliveryApp {
             System.out.println();
         }
 
+    }
+
+    private static void checkBox() {
+        // анбоксинг
+        System.out.println("Выберите тип коробки с посылками: 1- стандартная, 2 - хрупкая, 3- быстропортящаяся");
+        int boxType = Integer.parseInt(scanner.nextLine());
+        switch (boxType) {
+            case 1:
+                standartBox.getAllParcels();
+                break;
+            case 2:
+                fragileBox.getAllParcels();
+                break;
+            case 3:
+                perishableBox.getAllParcels();
+                break;
+            default:
+                System.out.println("Неверный выбор.");
+        }
+        System.out.println();
     }
 
 }
