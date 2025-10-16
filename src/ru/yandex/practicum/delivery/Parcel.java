@@ -16,16 +16,17 @@ public abstract class Parcel {
         this.sendDay = sendDay;
     }
 
-    public void packageItem(Parcel parcel) {
-        System.out.println("Посылка <" + parcel.getDescription() + "> упакована");
+    public void packageItem() {
+        System.out.println("Посылка <" + getDescription() + "> упакована");
     }
 
-    public void deliver(Parcel parcel) {
-        System.out.println("Посылка <" + parcel.getDescription() + "> доставлена по адресу " + parcel.getDeliveryAddress()  + ".");
+    public void deliver() {
+        System.out.println("Посылка <" + getDescription() + "> доставлена по адресу " + getDeliveryAddress()  + ".");
     }
 
-    public void calculateDeliveryCost(Parcel parcel) {
-        System.out.println("Стоимость отправления = " + parcel.getWeight() * parcel.getBaseCoast() + ".");
+    public int calculateDeliveryCost() {
+        System.out.println("Стоимость отправления " + getDescription() + " = " + getCoast() + ".");
+        return getCoast();
     }
 
     public int getWeight() {
@@ -44,7 +45,7 @@ public abstract class Parcel {
         return sendDay;
     }
 
-    public int getBaseCoast() {
-        return baseCoast;
+    public int getCoast() {
+        return weight * baseCoast;
     }
 }

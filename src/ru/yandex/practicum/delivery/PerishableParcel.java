@@ -1,12 +1,13 @@
 package ru.yandex.practicum.delivery;
 
 public class PerishableParcel extends Parcel {
-    protected static int baseCoast = 3;
+
     protected int timeToLive;
 
     public PerishableParcel(String description, int weight, String deliveryAddress, int sendDay, int timeToLive) {
         super(description, weight, deliveryAddress, sendDay);
         this.timeToLive = timeToLive;
+        baseCoast = 3;
     }
 
     public int getTimeToLive() {
