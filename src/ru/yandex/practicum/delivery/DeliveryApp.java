@@ -100,6 +100,7 @@ public class DeliveryApp {
             default:
                 System.out.println("Неверный выбор.");
         }
+        System.out.println();
 
     }
 

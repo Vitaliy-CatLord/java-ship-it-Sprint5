@@ -14,6 +14,7 @@ public class PerishableParcel extends Parcel {
         return timeToLive;
     }
 
+    //странно, что не попросили в главное меню запихнуть, например в отслеживание статуса подпихнуть
     public boolean isExpired(int currentDay) {
         if (sendDay+timeToLive >= currentDay) {
             return false;

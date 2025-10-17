@@ -14,15 +14,17 @@ public class ParcelBox<T extends Parcel>  {
 
     private List<T> boxList = new ArrayList<>();
 
-    public void addParcel(T parcel) {
+    public String addParcel(T parcel) {
+        String result;
         if ((currentBoxWeight+ parcel.getWeight()) <= maxBoxWeight) {
             boxList.add(parcel);
             currentBoxWeight+=parcel.getWeight();
-            System.out.println("Посылка <" + parcel.getDescription() + "> упакована в коробку.");
+            result = "Посылка <" + parcel.getDescription() + "> упакована в коробку.";
         } else {
-            System.out.println("Коробка переполнена, посылка не добавлена в коробку");
+            result = "Коробка переполнена, посылка не добавлена в коробку";
         }
-        System.out.println();
+        return result;
+
     }
 
     public void getAllParcels() {
