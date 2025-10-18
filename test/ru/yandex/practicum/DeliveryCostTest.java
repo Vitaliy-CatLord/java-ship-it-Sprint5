@@ -1,9 +1,7 @@
 package ru.yandex.practicum;
 
 //import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Assertions.assertEquals;
-import org.junit.jupiter.api.Assertions.assertTrue;
-import org.junit.jupiter.api.Assertions.assertFalse;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import ru.yandex.practicum.delivery.FragileParcel;
@@ -20,17 +18,17 @@ public class DeliveryCostTest {
    //проверка расчета цен
     @Test
     public void shouldBe46WhenStandardAndWeight23() {
-        Assertions.assertTrue(standardParcel.getCoast() == 46);
+        Assertions.assertEquals(46, standardParcel.getCoast());
     }
 
     @Test
     public void shouldBe57WhenPerishableAndWeight19() {
-       Assertions.assertTrue(perishableParcel.getCoast() == 57);
+        Assertions.assertEquals(57, perishableParcel.getCoast());
     }
 
     @Test
     public void shouldBe68WhenFragileAndWeight17() {
-        Assertions.assertTrue(fragileParcel.getCoast() == 68);
+        Assertions.assertEquals(68, fragileParcel.getCoast());
     }
 
 
@@ -46,7 +44,7 @@ public class DeliveryCostTest {
 
     @Test
     public void shouldBeFalseAt20Day() {
-        Assertions.assertTrue(perishableParcel.isExpired(20));
+        Assertions.assertFalse(perishableParcel.isExpired(20));
     }
 
 
@@ -66,7 +64,7 @@ public class DeliveryCostTest {
     public void shouldReturnNotAddedWhenOverPackaged() {
         standardBox.addParcel(standardParcel);
         standardBox.addParcel(standardParcel);
-        Assertions.assertEquals(standardBox.addParcel(standardParcel), "Коробка переполнена, посылка не добавлена в коробку");
+        Assertions.assertEquals("Коробка переполнена, посылка не добавлена в коробку", standardBox.addParcel(standardParcel));
     }
 
 
