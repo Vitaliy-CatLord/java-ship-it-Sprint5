@@ -1,11 +1,11 @@
 package ru.yandex.practicum.delivery;
 
-import ru.yandex.practicum.delivery.Boxs.ParcelBox;
-import ru.yandex.practicum.delivery.Interfaces.Trackable;
-import ru.yandex.practicum.delivery.Parcels.FragileParcel;
-import ru.yandex.practicum.delivery.Parcels.Parcel;
-import ru.yandex.practicum.delivery.Parcels.PerishableParcel;
-import ru.yandex.practicum.delivery.Parcels.StandardParcel;
+import ru.yandex.practicum.delivery.boxs.ParcelBox;
+import ru.yandex.practicum.delivery.interfaces.Trackable;
+import ru.yandex.practicum.delivery.parcels.FragileParcel;
+import ru.yandex.practicum.delivery.parcels.Parcel;
+import ru.yandex.practicum.delivery.parcels.PerishableParcel;
+import ru.yandex.practicum.delivery.parcels.StandardParcel;
 
 import java.util.ArrayList;
 import java.util.List;

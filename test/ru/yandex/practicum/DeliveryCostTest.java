@@ -3,10 +3,10 @@ package ru.yandex.practicum;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import ru.yandex.practicum.delivery.Parcels.FragileParcel;
-import ru.yandex.practicum.delivery.Boxs.ParcelBox;
-import ru.yandex.practicum.delivery.Parcels.PerishableParcel;
-import ru.yandex.practicum.delivery.Parcels.StandardParcel;
+import ru.yandex.practicum.delivery.parcels.FragileParcel;
+import ru.yandex.practicum.delivery.boxs.ParcelBox;
+import ru.yandex.practicum.delivery.parcels.PerishableParcel;
+import ru.yandex.practicum.delivery.parcels.StandardParcel;
 
 public class DeliveryCostTest {
     StandardParcel standardParcel= new StandardParcel("testStandardName", 23, "testStandardAddress", 1);

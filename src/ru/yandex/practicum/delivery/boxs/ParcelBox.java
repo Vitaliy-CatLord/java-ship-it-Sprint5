@@ -1,6 +1,6 @@
-package ru.yandex.practicum.delivery.Boxs;
+package ru.yandex.practicum.delivery.boxs;
 
-import ru.yandex.practicum.delivery.Parcels.Parcel;
+import ru.yandex.practicum.delivery.parcels.Parcel;
 
 import java.util.ArrayList;
 import java.util.List;

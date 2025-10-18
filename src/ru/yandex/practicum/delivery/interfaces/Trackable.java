@@ -1,4 +1,4 @@
-package ru.yandex.practicum.delivery.Interfaces;
+package ru.yandex.practicum.delivery.interfaces;
 
 public interface Trackable {
 

@@ -1,4 +1,4 @@
-package ru.yandex.practicum.delivery.Parcels;
+package ru.yandex.practicum.delivery.parcels;
 
 public abstract class Parcel {
     //добавьте реализацию и другие необходимые классы
