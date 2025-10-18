@@ -1,4 +1,6 @@
-package ru.yandex.practicum.delivery;
+package ru.yandex.practicum.delivery.Parcels;
+
+import ru.yandex.practicum.delivery.Interfaces.Trackable;
 
 public class FragileParcel extends Parcel implements Trackable {
 

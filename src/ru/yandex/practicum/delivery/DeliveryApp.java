@@ -1,5 +1,12 @@
 package ru.yandex.practicum.delivery;
 
+import ru.yandex.practicum.delivery.Boxs.ParcelBox;
+import ru.yandex.practicum.delivery.Interfaces.Trackable;
+import ru.yandex.practicum.delivery.Parcels.FragileParcel;
+import ru.yandex.practicum.delivery.Parcels.Parcel;
+import ru.yandex.practicum.delivery.Parcels.PerishableParcel;
+import ru.yandex.practicum.delivery.Parcels.StandardParcel;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;

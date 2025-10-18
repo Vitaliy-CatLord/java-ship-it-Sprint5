@@ -1,4 +1,4 @@
-package ru.yandex.practicum.delivery;
+package ru.yandex.practicum.delivery.Parcels;
 
 public class StandardParcel extends Parcel{
 
