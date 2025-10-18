@@ -8,7 +8,7 @@ import ru.yandex.practicum.delivery.boxs.ParcelBox;
 import ru.yandex.practicum.delivery.parcels.PerishableParcel;
 import ru.yandex.practicum.delivery.parcels.StandardParcel;
 
-public class DeliveryCostTest {
+public class DeliveryTest {
     StandardParcel standardParcel= new StandardParcel("testStandardName", 23, "testStandardAddress", 1);
     PerishableParcel perishableParcel = new PerishableParcel("testPerishableName", 19, "testPerishableAddress", 5, 10);
     FragileParcel  fragileParcel = new FragileParcel("testFragileName", 17, "testFragileAddress", 10);
